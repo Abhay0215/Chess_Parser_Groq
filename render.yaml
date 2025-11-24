@@ -6,4 +6,6 @@ services:
     region: singapore # Closest region to India usually available on Render
     envVars:
       - key: GROQ_API_KEY
-        sync: false # You will need to enter this in the Render Dashboard
+        sync: false
+      - key: BACKEND_CORS_ORIGINS
+        sync: false # Add your Vercel URL here (e.g. https://your-app.vercel.app)
