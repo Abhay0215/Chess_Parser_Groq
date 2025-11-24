@@ -24,3 +24,17 @@ async def extract_moves(file: UploadFile = File(...)):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+from pydantic import BaseModel
+
+class EngineMoveRequest(BaseModel):
+    fen: str
+
+@router.post("/engine/move")
+async def get_engine_move(request: EngineMoveRequest):
+    from app.services.chess_engine import chess_engine
+    try:
+        move = chess_engine.get_best_move(request.fen)
+        return {"move": move}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
