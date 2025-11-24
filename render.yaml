@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: chess-parser-backend
+    env: docker
+    plan: free
+    region: singapore # Closest region to India usually available on Render
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false # You will need to enter this in the Render Dashboard
