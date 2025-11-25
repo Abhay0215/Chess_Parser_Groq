@@ -4,6 +4,16 @@ from app.utils.chess_utils import validate_moves
 
 router = APIRouter()
 
+@router.get("/")
+async def root():
+    return {
+        "status": "ok",
+        "message": "Chess Parser Backend is running",
+        "version": "2.0",
+        "endpoints": ["/extract", "/engine/move"]
+    }
+
+
 @router.post("/extract")
 async def extract_moves(file: UploadFile = File(...)):
     try:
