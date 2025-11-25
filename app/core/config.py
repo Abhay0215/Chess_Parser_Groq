@@ -12,6 +12,7 @@ class Settings:
         "http://localhost:5173",
         "http://localhost:3000",
         "http://localhost:8001",
+        "https://chess-parser.vercel.app/",
     ]
 
     # Parse CORS origins from env if present
